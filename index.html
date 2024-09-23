@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="One-Shot Manipulation Strategy Learning by Making Contact Analogies">
+  <meta name="keywords" content="Manipulation, Contact Modeling, Geometric Functional Correspondence">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One-Shot Manipulation Strategy Learning by Making Contact Analogies</title>
+
+  <!-- Thumbnail for social media sharing -->
+  <!-- <meta property="og:image" content="media/figures/thumbnail.png"> -->
+  <!-- TODO -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="media/figures/A.png" type="image/jpeg"> 
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="stylesheet" href="./static/source_serif_4.css">
+  <link rel="stylesheet" href="./static/source_sans_3.css">  
+  <link rel="stylesheet" href="./static/academicons.min.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/light.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">One-Shot 
+            <img src="media/figures/M.svg" alt="logo" style="width: 70px; height: 70px; margin-right: -22.5px; margin-bottom: -25px;">
+            anipulation Strategy Learning <br> by Making Contact 
+            <img src="media/figures/A.svg" alt="logo" style="width: 60px; height: 60px; margin-right: -15px; margin-bottom: -10px;">
+            nalogies</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://yuyaoliu.me/">Yuyao Liu</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://jiayuanm.com/">Jiayuan Mao</a><sup>2*</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://cocosci.mit.edu/josh/">Joshua Tenenbaum</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://people.csail.mit.edu/tlp/">Tomás Lozano-Pérez</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://people.csail.mit.edu/lpk/">Leslie Pack Kaelbling</a><sup>2</sup>
+            </span>
+          </div>
+          <div class="is-size-5 affiliation">
+            <sup>1</sup>Tsinghua University
+            <sup>2</sup>Massachusetts Institute of Technology
+          </div>
+          <br>
+          <div class="affiliation-note">
+            <sup>*</sup> Equal contribution
+          </div>
+          <div class="button-container">
+            <a href="./magic.pdf" target="_blank" class="button"><i class="fa-light fa-file"></i>&emsp14;PDF</a>
+            <a href="https://magic-2024.github.io" target="_blank" class="button"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
+            <a href="https://youtu.be/Xjr2U61W5VU" target="_blank" class="button"><i class="fa-light fa-film"></i>&emsp14;Video</a>
+            <!-- <a href="https://x.com/" target="_blank" class="button"><i class="fa-brands fa-x-twitter"></i>&emsp14;tl;dr</a> -->
+            <a href="https://magic-2024.github.io" target="_blank" class="button"><i class="fa-light fa-code"></i>&emsp14;Code</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <video id="teaser" autoplay muted loop controls height="100%" width="100%">
+            <source src="media/videos/teaser.mp4"
+                    type="video/mp4">
+          </video>
+          </br>
+        </div>
+        <br>
+        <h2 class="subtitle has-text-centered">
+        We propose <b>MAGIC</b>, a one-shot learning method that combines global shape matching by pretrained visual features with local curvature analysis, enabling fast generalization of manipulation strategies to novel objects.
+        </h2>
+      </div>
+    </div>
+  </div>
+
+<div class="container is-max-widescreen">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        We present a novel approach, MAGIC (manipulation analogies for generalizable intelligent contacts), for one-shot learning of manipulation strategies with fast and extensive generalization to novel objects. By leveraging a reference action trajectory, MAGIC effectively identifies similar contact points and sequences of actions on novel objects to replicate a demonstrated strategy, such as using different hooks to retrieve distant objects of different shapes and sizes. Our method is based on a two-stage contact-point matching process that combines global shape matching using pretrained neural features with local curvature analysis to ensure precise and physically plausible contact points. We experiment with three tasks including scooping, hanging, and hooking objects. MAGIC demonstrates superior performance over existing methods, achieving significant improvements in runtime speed and generalization to different object categories. 
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Walkthrough Video</h2>
+  <div class="publication-video">
+      <iframe src="https://www.youtube.com/embed/Xjr2U61W5VU" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Overview of MAGIC</h2>
+  <img src="media/figures/pipeline.png" class="method-image" />
+  <p class="content has-text-justified"> (a) We first extract contact points from the reference trajectory. 
+    (b) Then, we compute a global and local contact point matching score to select candidate contact points on novel objects. 
+    (c) The generated contact points will be used for motion retargeting or motion planning, and the final motion will be simulated and verified by a physical simulator.
+    <b>Our pipeline combines data-driven (pretrained DINOv2 visual features) and analytic (curvature) approaches from one single demonstration, without any additional training or task specific datasets.</b>
+  </p>
+</div>
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">DINOv2 Heatmap Visualization</h2> 
+
+  <p class="content has-text-justified"> We provide the feature similarity heatmap with respect to the reference contact point on the E(2) orientation with the highest global contact matching score. The red star annotates the reference contact point, and a brighter color in the heatmap indicates a higher global matching score.</p>
+  
+  <div class="columns">
+    <div class="column has-text-centered">
+      <img src="media/figures/DINO_heatmap.jpg" width="60%" class="method-image" />
+    </div>
+</div>
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Functional Alignment Visualization for Various Objects in the Wild</h2> 
+
+  <p class="content has-text-justified"> We illustrate the contact points found by DINOv2 and functional alignment established by curvature on various visually different objects below.</p>
+  
+  <div class="columns">
+    <div class="column has-text-centered">
+      <img src="media/figures/real_demo_old_00.png" class="method-image" />
+    </div>
+</div>
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Simulation Experiments</h2>
+  <h3 class="title is-4">Scooping</h3>
+  <div class="columns">
+    <div class="column has-text-centered">
+      <img src="media/videos/scooping-sim/demo.png" width="100%" class="method-image" />
+      Demonstration
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/scooping-sim/spoon_8.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/scooping-sim/spoon_11.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/scooping-sim/spoon_12.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/scooping-sim/spoon_7.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <h3 class="title is-4">Hanging</h3>
+  <div class="columns">
+    <div class="column has-text-centered">
+      <img src="media/videos/hanging-sim/demo.png" width="100%" class="method-image" />
+      Demonstration
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/0.mp4" 
+        type="video/mp4">
+      </video>
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/46.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/3.mp4"
+        type="video/mp4">
+      </video>
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/75.mp4"
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/15.mp4" 
+        type="video/mp4">
+      </video>
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/115.mp4"
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/22.mp4" 
+        type="video/mp4">
+      </video>
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-sim/152.mp4"
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <h3 class="title is-4">Hooking</h3>
+  <div class="columns">
+    <div class="column has-text-centered">
+      <img src="media/videos/hook-sim/demo.png" width="100%" class="method-image" />
+      Demonstration
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hook-sim/scissors.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hook-sim/caliper.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hook-sim/hanger.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hook-sim/watch.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Real-World Experiments</h2>
+  <h3 class="title is-4">Hanging (4x)</h3>
+  <div class="columns">
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-real/C0219-4x-muted.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-real/C0221-4x-muted.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hanging-real/C0236-4x-muted.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <h3 class="title is-4">Hooking (4x)</h3>
+  <div class="columns">
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hooking-real/C0245 - 01.mp4-4x.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hooking-real/C0249 - 01.mp4-4x.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/hooking-real/C0255 - 01.mp4-4x.mp4" 
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <h3 class="title is-4">Failure Case Analysis</h3>
+  <p class="content has-text-justified"> We observed four failure modes of MAGIC across 21 failures among a total of 70 trials in our real-world experiments. The most common failure (7/21) occurs when the grasping point is near the end of the tool, leading to slips on slippery materials. Collision avoidance issues due to imperfect mesh reconstruction also account for 7 failures. Depth capture errors from the RGB-D camera cause 3 failures by preventing accurate contact point recovery. Finally, global contact matching based on DINOv2 might sometimes be suboptimal when faced with noisy textures, causing 4 failures.  The figures below illustrate the 4 failure cases, respectively.</p>
+  <p class="content has-text-centered">
+  <img src="media/figures/failurecase_00.png" width="80%" class="method-image" />
+  </p>
+</div>
+
+<h2 class="title is-3">BibTeX (To be finished)</h2>
+<p class="bibtex">
+    @article{liu2024magic, <br>
+    &nbsp;&nbsp;title = {One-Shot Manipulation Strategy Learning by Making Contact Analogies}, <br>
+    &nbsp;&nbsp;author = {Liu, Yuyao and Mao, Jiayuan and Tenenbaum, Joshua and Lozano-Pérez, Tomás and Kaelbling, Leslie}, <br>
+    &nbsp;&nbsp;journal = {arXiv preprint arXiv:}, <br>
+    &nbsp;&nbsp;year = {2024} <br>
+    }
+</p>
+<!-- TODO -->
+
+</section>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>,
+            <a href="https://dex-cap.github.io">DexCap</a>,
+            and <a href="https://transic-robot.github.io">TRANSIC</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

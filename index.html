@@ -39,6 +39,61 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .tab {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .tab button {
+        background-color: #ffffff;
+        color: #555;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        margin: 0 10px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bolder;
+        transition: all 0.3s ease;
+        flex: 1;
+        max-width: 200px;
+        max-height: 50px;
+    }
+
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    .tab button.active {
+        background-color: #555;
+        color: white;
+    }
+
+    .tabcontent {
+        display: none;
+        padding: 20px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+
+    .tabcontent h3 {
+        margin-top: 0;
+    }
+
+    /* Ensure content fits without borders */
+    .tabcontent p {
+        margin: 0;
+    }
+</style>
 </head>
 
 <section class="hero">
@@ -86,7 +141,7 @@
           <div class="button-container">
             <a href="./magic.pdf" target="_blank" class="button"><i class="fa-light fa-file"></i>&emsp14;PDF</a>
             <a href="https://magic-2024.github.io" target="_blank" class="button"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
-            <a href="https://youtu.be/Xjr2U61W5VU" target="_blank" class="button"><i class="fa-light fa-film"></i>&emsp14;Video</a>
+            <a href="https://youtu.be/rkuAoAUmqDQ" target="_blank" class="button"><i class="fa-light fa-film"></i>&emsp14;Video</a>
             <!-- <a href="https://x.com/" target="_blank" class="button"><i class="fa-brands fa-x-twitter"></i>&emsp14;tl;dr</a> -->
             <a href="https://magic-2024.github.io" target="_blank" class="button"><i class="fa-light fa-code"></i>&emsp14;Code</a>
         </div>
@@ -133,7 +188,7 @@
 <div class="rows">
   <h2 class="title is-3">Walkthrough Video</h2>
   <div class="publication-video">
-      <iframe src="https://www.youtube.com/embed/Xjr2U61W5VU" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/rkuAoAUmqDQ" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -149,7 +204,7 @@
   </p>
 </div>
 
-<hr class="rounded">
+<!-- <hr class="rounded">
 <div class="rows">
   <h2 class="title is-3">DINOv2 Heatmap Visualization</h2> 
 
@@ -159,19 +214,7 @@
     <div class="column has-text-centered">
       <img src="media/figures/DINO_heatmap.jpg" width="60%" class="method-image" />
     </div>
-</div>
-
-<hr class="rounded">
-<div class="rows">
-  <h2 class="title is-3">Functional Alignment Visualization for Various Objects in the Wild</h2> 
-
-  <p class="content has-text-justified"> We illustrate the contact points found by DINOv2 and functional alignment established by curvature on various visually different objects below.</p>
-  
-  <div class="columns">
-    <div class="column has-text-centered">
-      <img src="media/figures/real_demo_old_00.png" class="method-image" />
-    </div>
-</div>
+</div> -->
 
 <hr class="rounded">
 <div class="rows">
@@ -321,6 +364,18 @@
 
 <hr class="rounded">
 <div class="rows">
+  <h2 class="title is-3">Functional Alignment Visualization for Various Objects in the Wild</h2> 
+
+  <p class="content has-text-justified"> We illustrate the contact points found by DINOv2 and functional alignment established by curvature on various visually different objects below.</p>
+  
+  <div class="columns">
+    <div class="column has-text-centered">
+      <img src="media/figures/real_demo_old_00.png" class="method-image" />
+    </div>
+</div>
+
+<hr class="rounded">
+<div class="rows">
   <h2 class="title is-3">Real-World Experiments</h2>
   <h3 class="title is-4">Hanging (4x)</h3>
   <div class="columns">
@@ -328,7 +383,7 @@
       <video id="dist1"
         controls autoplay loop muted
         width="100%">
-        <source src="media/videos/hanging-real/C0219-4x-muted.mp4" 
+        <source src="media/videos/hanging-real/0.mp4" 
         type="video/mp4">
       </video>
     </div>
@@ -336,7 +391,7 @@
       <video id="dist1"
         controls autoplay loop muted
         width="100%">
-        <source src="media/videos/hanging-real/C0221-4x-muted.mp4" 
+        <source src="media/videos/hanging-real/1.mp4" 
         type="video/mp4">
       </video>
     </div>
@@ -344,7 +399,7 @@
       <video id="dist1"
         controls autoplay loop muted
         width="100%">
-        <source src="media/videos/hanging-real/C0236-4x-muted.mp4" 
+        <source src="media/videos/hanging-real/2.mp4" 
         type="video/mp4">
       </video>
     </div>
@@ -355,7 +410,7 @@
       <video id="dist1"
         controls autoplay loop muted
         width="100%">
-        <source src="media/videos/hooking-real/C0245 - 01.mp4-4x.mp4" 
+        <source src="media/videos/hooking-real/0.mp4" 
         type="video/mp4">
       </video>
     </div>
@@ -363,7 +418,7 @@
       <video id="dist1"
         controls autoplay loop muted
         width="100%">
-        <source src="media/videos/hooking-real/C0249 - 01.mp4-4x.mp4" 
+        <source src="media/videos/hooking-real/1.mp4" 
         type="video/mp4">
       </video>
     </div>
@@ -371,17 +426,63 @@
       <video id="dist1"
         controls autoplay loop muted
         width="100%">
-        <source src="media/videos/hooking-real/C0255 - 01.mp4-4x.mp4" 
+        <source src="media/videos/hooking-real/2.mp4" 
         type="video/mp4">
       </video>
     </div>
   </div>
   <h3 class="title is-4">Failure Case Analysis</h3>
+</div>
+<div class="tab">
+  <button class="tablinks active" onclick="openTab(event, 'Option1')">Slippery Grasp</button>
+  <button class="tablinks" onclick="openTab(event, 'Option2')">Collision</button>
+  <button class="tablinks" onclick="openTab(event, 'Option3')">Depth Error</button>
+  <button class="tablinks" onclick="openTab(event, 'Option3')">Matching Failure</button>
+</div>
+
+<div id="Option1" class="tabcontent" style="display: block;">
   <p class="content has-text-justified"> We observed four failure modes of MAGIC across 21 failures among a total of 70 trials in our real-world experiments. The most common failure (7/21) occurs when the grasping point is near the end of the tool, leading to slips on slippery materials. Collision avoidance issues due to imperfect mesh reconstruction also account for 7 failures. Depth capture errors from the RGB-D camera cause 3 failures by preventing accurate contact point recovery. Finally, global contact matching based on DINOv2 might sometimes be suboptimal when faced with noisy textures, causing 4 failures.  The figures below illustrate the 4 failure cases, respectively.</p>
   <p class="content has-text-centered">
-  <img src="media/figures/failurecase_00.png" width="80%" class="method-image" />
-  </p>
+    <img src="media/figures/failurecase_00.png" width="80%" class="method-image" />
+    </p>
 </div>
+
+<div id="Option2" class="tabcontent">
+  <p class="content has-text-justified"> We observed four failure modes of MAGIC across 21 failures among a total of 70 trials in our real-world experiments. The most common failure (7/21) occurs when the grasping point is near the end of the tool, leading to slips on slippery materials. Collision avoidance issues due to imperfect mesh reconstruction also account for 7 failures. Depth capture errors from the RGB-D camera cause 3 failures by preventing accurate contact point recovery. Finally, global contact matching based on DINOv2 might sometimes be suboptimal when faced with noisy textures, causing 4 failures.  The figures below illustrate the 4 failure cases, respectively.</p>
+  <p class="content has-text-centered">
+    <img src="media/figures/failurecase_00.png" width="80%" class="method-image" />
+    </p>
+</div>
+
+<div id="Option3" class="tabcontent">
+  <p class="content has-text-justified"> We observed four failure modes of MAGIC across 21 failures among a total of 70 trials in our real-world experiments. The most common failure (7/21) occurs when the grasping point is near the end of the tool, leading to slips on slippery materials. Collision avoidance issues due to imperfect mesh reconstruction also account for 7 failures. Depth capture errors from the RGB-D camera cause 3 failures by preventing accurate contact point recovery. Finally, global contact matching based on DINOv2 might sometimes be suboptimal when faced with noisy textures, causing 4 failures.  The figures below illustrate the 4 failure cases, respectively.</p>
+  <p class="content has-text-centered">
+    <img src="media/figures/failurecase_00.png" width="80%" class="method-image" />
+    </p>
+</div>
+
+<div id="Option4" class="tabcontent">
+  <p class="content has-text-justified"> We observed four failure modes of MAGIC across 21 failures among a total of 70 trials in our real-world experiments. The most common failure (7/21) occurs when the grasping point is near the end of the tool, leading to slips on slippery materials. Collision avoidance issues due to imperfect mesh reconstruction also account for 7 failures. Depth capture errors from the RGB-D camera cause 3 failures by preventing accurate contact point recovery. Finally, global contact matching based on DINOv2 might sometimes be suboptimal when faced with noisy textures, causing 4 failures.  The figures below illustrate the 4 failure cases, respectively.</p>
+  <p class="content has-text-centered">
+    <img src="media/figures/failurecase_00.png" width="80%" class="method-image" />
+    </p>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 
 <h2 class="title is-3">BibTeX (To be finished)</h2>
 <p class="bibtex">
